@@ -1,0 +1,226 @@
+@charset "UTF-8";
+
+.my-module-overview {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+}
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.coursebox.clearfix {
+    padding: 1em 4%;
+    border-bottom: 1px solid #eae9e7;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+}
+
+.has-feedback label.sr-only ~ .form-control-feedback {
+    top: 0;
+}
+
+.courseinfo {
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 250px;
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    background-position: top center;
+    -webkit-box-shadow: 0px 5px 4px -3px rgba(50, 50, 50, 0.54);
+    -moz-box-shadow: 0px 5px 4px -3px rgba(50, 50, 50, 0.54);
+    box-shadow: 0px 5px 4px -3px rgba(50, 50, 50, 0.54);
+    margin: 0.5em 1%;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.courseinfo:hover {
+    -webkit-background-size: 115% auto;
+    background-size: 115% auto;
+    -webkit-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+}
+
+.courseinfo:hover .courseinfo-body {
+    padding-bottom: 0.5em;
+}
+
+.courseinfo .courseinfo-body {
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #666;
+    position: absolute;
+    width: 100% !important;
+    padding: 0 1em 1em !important;
+    bottom: 0;
+    min-height: 50%;
+    box-sizing: border-box;
+}
+
+.courseinfo .courseinfo-body h3 a {
+    display: block;
+    display: -webkit-box;
+    max-height: 3em;
+    width: 100%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal !important;
+}
+
+.courseinfo h3 {
+    padding: 0 !important;
+    font-size: 1.3em !important;
+    font-weight: 400 !important;
+    color: #333333 !important;
+}
+
+.courseinfo .completionstatus {
+    font-size: small;
+}
+
+.courseinfo .coursegrade {
+    font-size: small;
+    text-align: right;
+    display: block;
+    line-height: 2.5em;
+    padding-right: 2.75em;
+    background-image: url("[[pix:theme|gradebook]]");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    -webkit-background-size: 2.5em 2.5em;
+    background-size: 2.5em 2.5em;
+    display: none;
+}
+
+.courseinfo .published-status {
+    clear: both;
+    margin-bottom: -1em;
+    float: left;
+}
+
+.courseinfo .completionstatus {
+    border-bottom: 0.5em solid #AAA;
+}
+
+.courseinfo .completion-line {
+    background-color: #666;
+    height: 0.3em;
+    margin-top: -0.3em;
+}
+
+#fixy-my-courses {
+    margin-bottom: 10px;
+    /* 50% !important; */;
+}
+
+#fixy-my-courses .courseinfo {
+    min-height: 200px;
+}
+
+#fixy-my-courses .courseinfo a, #fixy-my-courses .courseinfo a:visited, #fixy-my-courses .courseinfo a:focus, #fixy-my-courses .courseinfo a:hover {
+    color: #888;
+}
+
+#fixy-my-courses .courseinfo h3 a {
+    color: #888;
+}
+
+#fixy-my-courses h2 {
+    color: #888;
+    border-bottom: 1px solid #888;
+    font-size: 30px;
+    font-weight: 100;
+    margin-bottom: 10px;
+}
+
+#course-toc .completionstatus {
+    font-size: small;
+}
+
+#course-toc .completionstatus + .published-status:before, #course-toc .published-status + .published-status:before {
+    content: " · ";
+}
+
+.outoftotal {
+    color: #888;
+}
+
+h3, .h3, .sectionname {
+    font-size: 1.3em;
+}
+
+h3, .h3 {
+    font-size: 2.15em;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+@media screen and (min-width: 480px) {
+    .courseinfo {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .courseinfo {
+        width: 31, 75%;
+    }
+}
+
+@media (max-width: 640px) {
+    .courseinfo-2col .courseinfo-3col {
+        width: 96%;
+    }
+}
+
+@media (min-width: 640px) {
+    .courseinfo-2col {
+        width: 48%;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+    .courseinfo-3col {
+        width: 48%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .courseinfo-3col {
+        width: 31, 75%;
+    }
+}
