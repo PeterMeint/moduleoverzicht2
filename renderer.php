@@ -33,7 +33,7 @@ class block_moduleoverzicht_renderer extends plugin_renderer_base {
      *
      * @return string html to be displayed in course_overview block
      */
-    public function moduleoverzicht($courses, $show_backgroundimage) {
+    public function moduleoverzicht($courses, $configuratie) {
 		global $DB, $CFG;
 
 		$courselist = '';
@@ -57,8 +57,14 @@ class block_moduleoverzicht_renderer extends plugin_renderer_base {
 
                 $bgcolor = ' background-color:#' . $this->get_course_color($c->id) . '; ';
 
-                if ($show_backgroundimage) {
-                    $courseimagecss = "background-image: url(" . $CFG->wwwroot . "/blocks/moduleoverzicht/pix/course_images/course" . $c->id . ".jpg); ";
+                if ($configuratie->showbackgroundimage) {
+                    $itemid = $configuratie->{'backgroundimage' . $c->id};
+
+                    if ($itemid) {
+                        $file = $DB->get_record_select('files', 'itemid = '.$itemid.' AND filesize > 0');
+                        $url = $CFG->wwwroot . "/draftfile.php/" . $file->contextid . '/user/draft/' . $itemid . "/" . $file->filename;
+                        $courseimagecss = "background-image: url(" . $url."); ";
+                    }
                 }
 
                 $dynamicinfo = '<div data-courseid="' . $c->id . '" class="dynamicinfo"></div>';
@@ -94,7 +100,6 @@ class block_moduleoverzicht_renderer extends plugin_renderer_base {
 		$html .= html_writer::start_tag('div', array('class' => 'my-module-overview'));
 		$html .= html_writer::start_tag('section', array('id' => 'fixy-my-courses'));
 		$html .= html_writer::start_tag('div', array('class' => 'clearfix'));
-		$html .= html_writer::tag('h2', get_string('mycourses', 'block_moduleoverzicht'), array());
 
         return $html;
     }

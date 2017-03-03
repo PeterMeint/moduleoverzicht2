@@ -28,5 +28,5 @@ $string['config_show_title'] = 'Show title:';
 $string['config_show_backgroundimage'] = 'Show backgroundimage:';
 $string['blockstring'] = 'Moduleoverview';
 $string['mycourses'] = 'My modules';
-$string['menu_helpdesk'] = 'Help';
-$string['coursefixydefaulttext'] = 'Your are not enrolled to a course';
+$string['config_backgroundimage'] = "Background image";
+$string['coursefixydefaulttext'] = "You are not enrolled in any course";

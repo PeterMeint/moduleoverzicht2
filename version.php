@@ -18,12 +18,12 @@
  * Version details
  *
  * @package    block_moduleoverzicht
- * @copyright  2016 Peter Meint Heida <peter.meint.heida@springinstituut.nl>
+ * @copyright  2017 Peter Meint Heida <peter.meint.heida@springinstituut.nl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2016090102;        		// The current plugin version (Date: YYYYMMDDXX)
+$plugin->version   = 2017030301;        		// The current plugin version (Date: YYYYMMDDXX)
 $plugin->requires  = 2016051900;        		// Requires this Moodle version
 $plugin->component = 'block_moduleoverzicht';   // Full name of the plugin (used for diagnostics)

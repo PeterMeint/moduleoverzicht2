@@ -35,6 +35,7 @@ class block_moduleoverzicht_edit_form extends block_edit_form {
      * @param MoodleQuickForm $mform
      */
     protected function specific_definition($mform) {
+        global $DB;
 
         // Fields for editing activity_results block title and contents.
         $mform->addElement('header', 'configheader', get_string('blocksettings', 'block'));
@@ -42,5 +43,19 @@ class block_moduleoverzicht_edit_form extends block_edit_form {
         $mform->addElement('selectyesno', 'config_showtitle', get_string('config_show_title', 'block_moduleoverzicht'));
 
         $mform->addElement('selectyesno', 'config_showbackgroundimage', get_string('config_show_backgroundimage', 'block_moduleoverzicht'));
+
+        // Short description of the module/course
+        $courses = $DB->get_records_select('course', 'id > 1');
+        foreach($courses as $course) {
+            $mform->addElement('filepicker', 'config_backgroundimage'.$course->id, get_string('config_backgroundimage', 'block_moduleoverzicht').'<br>Course '.$course->id, null,
+                array('maxbytes' => 1485760, 'accepted_types' => array('.png', '.jpg')));
+        }
+
     }
+
+    function set_data($default) {
+        parent::set_data($default);
+    }
+
+
 }

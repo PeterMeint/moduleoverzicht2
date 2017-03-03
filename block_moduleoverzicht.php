@@ -36,7 +36,7 @@ class block_moduleoverzicht extends block_base {
     }
 
     function specialization() {
-        $this->title = '';//isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('pluginname', 'block_moduleoverzicht'));
+        $this->title = '';
     }
 
     function instance_allow_multiple() {
@@ -46,7 +46,7 @@ class block_moduleoverzicht extends block_base {
     function get_content() {
 
 	if($this->config->showtitle) {
-			$this->title = get_string('pluginname', 'block_moduleoverzicht');
+			$this->title = get_string('mycourses', 'block_moduleoverzicht');
 		} else {
 			$this->title = '';
 		}
@@ -65,7 +65,7 @@ class block_moduleoverzicht extends block_base {
 		if (!$mycourses) {
 			$this->content->text  .= html_writer::tag('p', get_string('coursefixydefaulttext', 'block_moduleoverzicht'), array());
 		} else {
-			$this->content->text .= $renderer->moduleoverzicht($mycourses, $this->config->showbackgroundimage);
+			$this->content->text .= $renderer->moduleoverzicht($mycourses, $this->config);
 		}
 		
 		$this->content->text  .= $renderer->footer();
